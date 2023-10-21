@@ -1,0 +1,20 @@
+.image-container {
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .close-button:hover {
+    color: #ccc;
+  }
+  
