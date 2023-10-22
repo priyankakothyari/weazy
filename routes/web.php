@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,7 @@ ider within a group which
 |
 */
 
-Route::get('test', function () {
-    return "hi";
-});
+
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::match(['get', 'post'], 'login', [
         AuthController::class,
@@ -34,4 +33,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
             return view('admin/dashboard');
         })->name('dashboard');
     });
+});
+
+//--------------front -------
+
+Route::match(['get','post'],'login',[FrontController::class,'login'])->name('login');
+Route::get('/',[FrontController::class,'index'])->name('index');
+
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('logout',[FrontController::class,'login'])->name('logout');
+    Route::post('/cart',[FrontController::class,'addToCart'])->name('add_to_cart');   
+    Route::post('/wishlist',[FrontController::class,'addToWishlist'])->name('add_to_wishlist');   
 });

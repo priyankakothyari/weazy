@@ -52,6 +52,8 @@ class ProductController extends Controller
 
         $data = $request->all();
 
+        
+        $product = Product::create($data);
         foreach ($request->image as $image) {
 
             $imageName = time() . '.'  . $image->getClientOriginalName();
@@ -64,8 +66,6 @@ class ProductController extends Controller
             ]);
 
         }
-
-        $product = Product::create($data);
 
         return redirect()->route('admin.product.index')->with('success', 'Product added successfully.');
     }
