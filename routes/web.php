@@ -41,7 +41,7 @@ Route::match(['get','post'],'login',[FrontController::class,'login'])->name('log
 Route::get('/',[FrontController::class,'index'])->name('index');
 
 Route::prefix('user')->name('user.')->group(function () {
-    Route::get('logout',[FrontController::class,'login'])->name('logout');
+    Route::get('logout',[FrontController::class,'logOut'])->name('logout');
     Route::post('/cart',[FrontController::class,'addToCart'])->name('add_to_cart');   
     Route::post('/wishlist',[FrontController::class,'addToWishlist'])->name('add_to_wishlist');   
 });

@@ -104,7 +104,7 @@
 
                     <div class="mb-3">
                         <label for="desc" class="form-label">Description*</label>
-                        <textarea name="description" id="desc" class="form-control" cols="10" rows="4">value="{{ $product->description }}"</textarea>
+                        <textarea name="description" id="desc" class="form-control" cols="10" rows="4">{{ $product->description }}</textarea>
                     </div>
 
                     <div class="mb-3">
